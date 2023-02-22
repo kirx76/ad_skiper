@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "AD Skipper",
+  "description": "Plugin for skip ads in youtube videos",
+  "version": "0.0.1",
+  "author": "kirx76",
+  "action": {
+    "default_title": "Click me"
+  },
+  //  "browser_action": {
+  //    "default_title": "Click me",
+  //    "default_popup": "index.html"
+  //  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting"
+  ],
+  "content_scripts" : [{
+    "matches": ["https://*/*"],
+    "js": ["content-script.js", "content.js"]
+  }]
+}
