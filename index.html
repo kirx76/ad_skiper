@@ -4,8 +4,39 @@
     var greeting = "hello, ";
     var button = document.getElementById("mybutton");
     button.person_name = "Bob";
-    button.addEventListener("click", () =>
-            alert(greeting + button.person_name + ".")
-        , false);
+
+    const onPress = async () => {
+        const dota = {
+            "url": "https://www.youtube.com/watch?v=dTQzCWtEBNY&ab_channel=JoeSpeen",
+            "from": 120,
+            "to": 240,
+            "hashID": "dTQzCWtEBNY"
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(dota)
+        };
+        const response = await fetch('https://skiper.kirx.site/video', requestOptions);
+        const data = await response.json();
+        // const rawResponse = await fetch("https://skiper.kirx.site/video", {
+        //     method: "POST",
+        //     body: JSON.stringify(data),
+        //     // body: data,
+        //     mode: "no-cors",
+        //     headers: {
+        //         "Content-type": "application/json",
+        //     },
+        // });
+        //
+        // const content = await rawResponse;
+
+        console.log(data, "CONTANT");
+    }
+    button.addEventListener("click", () => {
+        onPress();
+        // alert(greeting + button.person_name + ".")
+    }, false);
 </script>
 </html>
